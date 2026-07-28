@@ -1,0 +1,106 @@
+.section {
+  background: #ffffff;
+  padding: 4rem 0 2.5rem;
+}
+
+.head {
+}
+
+.eyebrow {
+  color: var(--brand-primary-dark);
+}
+
+.heading {
+  margin-top: 0.6rem;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+.headSub {
+  max-width: 34rem;
+  margin-top: 0.5rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+  font-size: 0.88rem;
+}
+
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+}
+
+.card {
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--brand-primary-soft);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 860px) {
+  .card {
+    padding: 0 2rem;
+    border-left: 1px solid var(--brand-primary-border);
+  }
+
+  .card:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+.stars {
+  color: var(--brand-primary);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.quote {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--color-black);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.person {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-black);
+}
+
+.role {
+  margin-top: 0.05rem;
+  font-size: 0.7rem;
+  color: var(--color-muted-soft);
+}

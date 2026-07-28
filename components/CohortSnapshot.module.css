@@ -1,0 +1,156 @@
+.section {
+  background: var(--panel-purple);
+  color: var(--panel-purple-text);
+  padding: 5.5rem 0;
+}
+
+.head {
+}
+
+.eyebrow {
+  color: var(--panel-purple-accent);
+}
+
+.heading {
+  margin-top: 1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.headSub {
+  max-width: 38rem;
+  margin-top: 1rem;
+  color: var(--panel-purple-text-muted);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.layout {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+}
+
+.breakdownCard {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.headcount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.headcountNum {
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-accent-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headcountLabel {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.bars {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.barRow {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.barTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.barTop span:first-child {
+  color: var(--color-black);
+  font-weight: 500;
+}
+
+.barTop span:last-child {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--brand-primary-dark);
+}
+
+.barTrack {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand-primary-tint);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-primary-mid), var(--brand-primary-soft));
+}
+
+.quotesCard {
+  background: var(--brand-primary-tint);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.quotesLabel {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-primary-dark);
+}
+
+.quoteList {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  flex: 1;
+}
+
+.quoteItem {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.quoteDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.quoteText {
+  font-size: 0.9rem;
+  color: var(--color-black);
+  line-height: 1.55;
+  font-style: italic;
+}

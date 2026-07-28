@@ -1,0 +1,169 @@
+.section {
+  background: var(--color-premium-black);
+  color: #ffffff;
+  padding: 5.5rem 0;
+}
+
+.head {
+}
+
+.eyebrow {
+  color: var(--brand-primary-soft);
+}
+
+.heading {
+  margin-top: 1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.headSub {
+  max-width: 34rem;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+}
+
+.card {
+  margin-top: 3rem;
+  display: grid;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 900px) {
+  .card {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+}
+
+.left {
+  padding: 2.5rem;
+  background: linear-gradient(160deg, rgba(114, 78, 153, 0.18), rgba(14, 14, 14, 0));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 900px) {
+  .left {
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  background: var(--brand-primary);
+  color: #ffffff;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+
+.priceLabel {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.priceRow {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.priceNow {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.priceWas {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.priceTagline {
+  margin-top: 0.75rem;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+.right {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+@media (min-width: 540px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.features li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.check {
+  color: var(--brand-primary-soft);
+  flex-shrink: 0;
+}
+
+.seats {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.seatsTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.seatsTrack {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.seatsFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-primary-soft));
+}
+
+.note {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.note strong {
+  color: #ffffff;
+}

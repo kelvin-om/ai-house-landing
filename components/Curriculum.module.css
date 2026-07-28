@@ -1,0 +1,235 @@
+.section {
+  background: var(--brand-primary-tint);
+  padding: 4rem 0;
+}
+
+.head {
+}
+
+.eyebrow {
+  color: var(--brand-primary-dark);
+}
+
+.heading {
+  margin-top: 0.75rem;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+.headSub {
+  max-width: 40rem;
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-size: 0.96rem;
+}
+
+.layout {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+.navSticky {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 960px) {
+  .navSticky {
+    position: sticky;
+    top: 6.25rem;
+  }
+}
+
+.weekNav {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.35rem;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+
+.weekNav::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .weekNav {
+    flex-direction: column;
+    overflow: visible;
+    gap: 2px;
+  }
+}
+
+.weekBtn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-radius: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.weekBtn:hover,
+.weekBtnActive {
+  background: rgba(114, 78, 153, 0.08);
+}
+
+.weekBtnActive .weekNum {
+  color: var(--brand-primary-dark);
+  opacity: 1;
+}
+
+.weekBtnActive .weekLabel {
+  opacity: 1;
+}
+
+.weekNum {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--brand-primary);
+  opacity: 0.25;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.weekLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-black);
+  opacity: 0.5;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+@media (min-width: 960px) {
+  .weekLabel {
+    white-space: normal;
+  }
+}
+
+.daysContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--brand-primary-border);
+  scroll-margin-top: 6.5rem;
+}
+
+.card:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 1.85rem 0;
+  }
+
+  .card:first-child {
+    padding-top: 0;
+  }
+}
+
+.cardHead {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.bigNum {
+  font-family: var(--font-mono);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--brand-primary-soft);
+  line-height: 1;
+}
+
+.cardEyebrow {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.cardTitle {
+  margin-top: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-black);
+  letter-spacing: -0.01em;
+}
+
+.painLine {
+  margin-top: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--color-muted);
+  font-style: italic;
+  border-left: 2px solid var(--brand-primary-soft);
+  padding-left: 0.75rem;
+}
+
+.sessions {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.sessionRow {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--brand-primary-border);
+}
+
+@media (min-width: 640px) {
+  .sessionRow {
+    grid-template-columns: 100px 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.sessionTime {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.76rem;
+  color: var(--color-muted-soft);
+}
+
+.sessionTitle {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-black);
+}
+
+.sessionText {
+  margin-top: 0.2rem;
+  font-size: 0.84rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+

@@ -1,0 +1,242 @@
+/**
+ * AI House — Design tokens
+ * Colors verified against the official brand kit (css/brand.css /
+ * reference/brand-tokens.md). Purple family, neutrals, and footer
+ * gradient match those tokens exactly.
+ */
+
+:root {
+  /* Brand purple family (kept exact, matches brand.css) */
+  --brand-primary: #724e99;
+  --brand-primary-hover: #5c3d82;
+  --brand-primary-dark: #4a2880;
+  --brand-primary-mid: #9b7bb8;
+  --brand-primary-soft: #c4a5e0;
+  --brand-primary-tint: #eadff5;
+  --brand-primary-border: #e3d3f2;
+  --brand-primary-wash: #fbf2ff;
+  --brand-primary-bg: #faf8fd;
+
+  /* Neutrals — matches brand.css exactly (near-black ink, neutral grays) */
+  --color-black: #1a1a1a;
+  --color-premium-black: #050505;
+  --color-muted: #5d5d5d;
+  --color-muted-soft: rgba(26, 26, 26, 0.42);
+  --color-border: #c2c2c2;
+  --color-white: #ffffff;
+
+  /* Footer gradient — exact value from brand.css / brand-tokens.md */
+  --footer-gradient: linear-gradient(135deg, #724e99 0%, #1a1a1a 100%);
+  /* Closing wash before the footer — purple tint on the official near-white base */
+  --ending-gradient: linear-gradient(160deg, #f1e6fa 0%, #ece0f7 45%, #faf8fd 100%);
+  /* Hero wash — official near-white base with a soft purple bloom */
+  --hero-gradient: linear-gradient(160deg, #faf8fd 0%, #efe0f5 45%, #faf8fd 100%);
+  /* Alternate light surface for section contrast */
+  --surface-contrast: var(--brand-primary-tint);
+  /* Accent gradient for headline text on light backgrounds */
+  --gradient-accent-text: linear-gradient(100deg, #4a2880 0%, #724e99 55%, #9b7bb8 100%);
+
+  /* Purple panel — used wherever the reference theme goes dark/ink.
+     Same brand purple family as everything else, just deeper, so
+     "dark" sections read as purple instead of black. */
+  --panel-purple: linear-gradient(135deg, #4a2880 0%, #5c3d82 55%, #724e99 100%);
+  --panel-purple-text: #ffffff;
+  --panel-purple-text-muted: rgba(255, 255, 255, 0.7);
+  --panel-purple-text-faint: rgba(255, 255, 255, 0.42);
+  --panel-purple-border: rgba(255, 255, 255, 0.14);
+  --panel-purple-accent: #c4a5e0;
+
+  /* Layout */
+  --radius-sm: 0.5rem;
+  --radius: 0.75rem;
+  --radius-lg: 1.25rem;
+  --max-width: 1200px;
+
+  /* Fonts — Inter only, per brand kit (no secondary typeface) */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* ,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-black);
+  background: var(--brand-primary-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--brand-primary-soft);
+  color: var(--color-premium-black);
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Shared utility classes ---------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  display: inline-block;
+}
+
+.btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--brand-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-brand:hover {
+  background: var(--brand-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  background: transparent;
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(114, 78, 153, 0.08);
+  border-color: var(--brand-primary);
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+  background: var(--brand-primary);
+  color: var(--color-white);
+  border-color: var(--brand-primary);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
