@@ -1,0 +1,87 @@
+.section {
+  background: #ffffff;
+  padding: 0 0 2.5rem;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--ending-gradient);
+  color: var(--color-black);
+  border: 1px solid var(--brand-primary-border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .panel {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.glow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 480px;
+  border-radius: 999px;
+  background: rgba(155, 123, 184, 0.2);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  color: var(--brand-primary);
+  justify-content: center;
+}
+
+.heading {
+  position: relative;
+  z-index: 1;
+  margin: 0.85rem auto 0;
+  max-width: 30rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.heading em {
+  font-style: normal;
+  background: var(--gradient-accent-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  position: relative;
+  z-index: 1;
+  margin: 1rem auto 0;
+  max-width: 28rem;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.actions {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.85rem;
+}
+
+.note {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-muted-soft);
+}
+
+.note strong {
+  color: var(--color-black);
+}

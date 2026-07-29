@@ -1,0 +1,178 @@
+.section {
+  background: var(--brand-primary-bg);
+  padding: 5.5rem 0;
+}
+
+.topGrid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .topGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: stretch;
+  }
+}
+
+.eyebrow {
+  color: var(--brand-primary);
+}
+
+.heading {
+  margin-top: 1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-black);
+  max-width: 18ch;
+}
+
+.copyCol {
+  margin-top: 1.5rem;
+}
+
+.copyCol p {
+  color: var(--color-muted);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
+.copyCol p + p {
+  margin-top: 1.1rem;
+}
+
+/* ---------- Visual card (right column) ---------- */
+.visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--panel-purple);
+  color: var(--panel-purple-text);
+  border: 1px solid var(--panel-purple-border);
+  min-height: 280px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.visualGrid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(114, 78, 153, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 78, 153, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.visualTag {
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(114, 78, 153, 0.25);
+  color: var(--brand-primary-dark);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.visualIcon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  opacity: 0.9;
+}
+
+.statChips {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.statChip {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(114, 78, 153, 0.18);
+  border-radius: 10px;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.statChipNum {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.statChipLabel {
+  margin-top: 0.15rem;
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.visualCaption {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--panel-purple-text-muted);
+}
+
+/* ---------- Pillars (full width, below the split) ---------- */
+.pillars {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar {
+  background: #ffffff;
+  border: 1px solid var(--brand-primary-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.pillarIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--brand-primary-tint);
+  color: var(--brand-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillarTitle {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-black);
+}
+
+.pillarText {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}

@@ -1,0 +1,135 @@
+.section {
+  background: var(--brand-primary-tint);
+  padding: 5.5rem 0;
+}
+
+.layout {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .layout {
+    grid-template-columns: 0.85fr 1.3fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+}
+
+.titleCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 860px) {
+  .titleCol {
+    height: 100%;
+  }
+}
+
+.eyebrow {
+  color: var(--brand-primary-dark);
+}
+
+.heading {
+  margin-top: 1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-black);
+}
+
+.headSub {
+  max-width: 26rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.faqCol {
+  min-width: 0;
+}
+
+.list {
+  border-top: 1px solid var(--brand-primary-border);
+}
+
+.item {
+  border-bottom: 1px solid var(--brand-primary-border);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.questionNum {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--brand-primary);
+  opacity: 0.4;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.question[aria-expanded="true"] .questionNum {
+  color: var(--brand-primary-dark);
+  opacity: 1;
+}
+
+.questionText {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  transition: transform 0.25s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+.answerWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.answerWrapOpen {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answer {
+  padding: 0 0 1.5rem 1.9rem;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  max-width: 34rem;
+}
