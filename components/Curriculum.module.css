@@ -34,7 +34,7 @@
 
 @media (min-width: 960px) {
   .layout {
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 272px 1fr;
     gap: 2.5rem;
     align-items: start;
   }
@@ -50,6 +50,37 @@
     position: sticky;
     top: 6.25rem;
   }
+}
+
+.navHead {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .navHead {
+    display: block;
+    padding: 0 1.15rem 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--brand-primary-border);
+  }
+}
+
+.navHeadEyebrow {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.navHeadTitle {
+  margin-top: 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--color-black);
 }
 
 .weekNav {
@@ -92,9 +123,9 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1rem;
-  border-radius: 2px;
+  gap: 0.75rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: 4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -119,19 +150,21 @@
 .weekNum {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: var(--brand-primary);
-  opacity: 0.25;
+  opacity: 0.3;
   flex-shrink: 0;
   transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .weekLabel {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
   color: var(--color-black);
-  opacity: 0.5;
+  opacity: 0.55;
   white-space: nowrap;
   transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -156,7 +189,7 @@
 
 @media (min-width: 960px) {
   .weekSlot {
-    min-height: 88vh;
+    min-height: 60vh;
     scroll-margin-top: 6.25rem;
   }
 

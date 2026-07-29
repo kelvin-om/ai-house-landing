@@ -13,7 +13,7 @@ export default function Hero() {
       <div className={styles.inner}>
         <span className={`eyebrow ${styles.eyebrow}`}>Powered by AI House</span>
         <h1 className={styles.headline}>
-          Six weeks. <em>One shipped agent.</em>
+          Six weeks. <em>One shipped<br className={styles.breakDesktop} /> agent.</em>
         </h1>
         <p className={styles.sub}>
           A 6-week, in-house cohort for builders who want to ship a real agent —

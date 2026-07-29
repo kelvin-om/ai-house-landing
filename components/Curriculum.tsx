@@ -145,9 +145,12 @@ const WEEKS = [
   },
 ];
 
+const SCROLL_BUFFER = 260;
+
 export default function Curriculum() {
   const [active, setActive] = useState(WEEKS[0].id);
   const slotRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const navRef = useRef<HTMLDivElement | null>(null);
   const btnRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [indicator, setIndicator] = useState<{
@@ -156,6 +159,8 @@ export default function Curriculum() {
     width: number;
     height: number;
   } | null>(null);
+  const [cardHeights, setCardHeights] = useState<Record<string, number>>({});
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -174,6 +179,39 @@ export default function Curriculum() {
     });
 
     return () => observer.disconnect();
+  }, []);
+
+  // Track desktop layout (matches the 960px breakpoint the sticky-card
+  // mechanic switches on at in the CSS).
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 960px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Each week's slot only needs to be as tall as its own card plus a fixed
+  // scroll buffer — not a flat viewport percentage — so short cards don't
+  // leave a wall of empty space beneath them before the next week appears.
+  // We read offsetHeight (the real, rendered border-box height) rather than
+  // ResizeObserver's contentRect, which excludes padding/border and was
+  // undersizing slots enough for cards to overlap on scroll.
+  useEffect(() => {
+    const observers: ResizeObserver[] = [];
+    Object.entries(cardRefs.current).forEach(([id, el]) => {
+      if (!el) return;
+      const ro = new ResizeObserver(() => {
+        const height = el.offsetHeight;
+        if (!height) return;
+        setCardHeights((prev) =>
+          Math.abs((prev[id] ?? 0) - height) < 1 ? prev : { ...prev, [id]: height }
+        );
+      });
+      ro.observe(el);
+      observers.push(ro);
+    });
+    return () => observers.forEach((ro) => ro.disconnect());
   }, []);
 
   useEffect(() => {
@@ -217,6 +255,11 @@ export default function Curriculum() {
 
         <div className={styles.layout}>
           <div className={styles.navSticky}>
+            <div className={styles.navHead}>
+              <span className={styles.navHeadEyebrow}>Curriculum</span>
+              <h3 className={styles.navHeadTitle}>Six weeks, one shipped agent</h3>
+            </div>
+
             <nav className={styles.weekNav} aria-label="Curriculum weeks" ref={navRef}>
               {indicator && (
                 <span
@@ -248,48 +291,63 @@ export default function Curriculum() {
           </div>
 
           <div className={styles.daysContent}>
-            {WEEKS.map((week, i) => (
-              <div
-                className={styles.weekSlot}
-                id={week.id}
-                key={week.id}
-                ref={(el) => {
-                  slotRefs.current[week.id] = el;
-                }}
-              >
-                <RevealOnScroll className={styles.stickyCardWrap}>
-                  <div className={styles.card}>
-                    <div className={styles.cardHead}>
-                      <span className={styles.bigNum}>{String(i + 1).padStart(2, "0")}</span>
-                      <div>
-                        <div className={styles.cardEyebrow}>Week {i + 1}</div>
-                        <h3 className={styles.cardTitle}>{week.label}</h3>
-                        <p className={styles.painLine}>{week.pain}</p>
-                      </div>
-                    </div>
+            {WEEKS.map((week, i) => {
+              const isLast = i === WEEKS.length - 1;
+              const measuredHeight = cardHeights[week.id];
+              const slotStyle =
+                isDesktop && !isLast
+                  ? { minHeight: `${(measuredHeight ?? 700) + SCROLL_BUFFER}px` }
+                  : undefined;
 
-                    <div className={styles.sessions}>
-                      {week.sessions.map((s) => (
-                        <div className={styles.sessionRow} key={s.title}>
-                          <span className={styles.sessionTime}>{s.time}</span>
-                          <div>
-                            <div className={styles.sessionTitle}>{s.title}</div>
-                            <p className={styles.sessionText}>{s.text}</p>
-                          </div>
+              return (
+                <div
+                  className={styles.weekSlot}
+                  id={week.id}
+                  key={week.id}
+                  style={slotStyle}
+                  ref={(el) => {
+                    slotRefs.current[week.id] = el;
+                  }}
+                >
+                  <RevealOnScroll className={styles.stickyCardWrap}>
+                    <div
+                      className={styles.card}
+                      ref={(el) => {
+                        cardRefs.current[week.id] = el;
+                      }}
+                    >
+                      <div className={styles.cardHead}>
+                        <span className={styles.bigNum}>{String(i + 1).padStart(2, "0")}</span>
+                        <div>
+                          <div className={styles.cardEyebrow}>Week {i + 1}</div>
+                          <h3 className={styles.cardTitle}>{week.label}</h3>
+                          <p className={styles.painLine}>{week.pain}</p>
                         </div>
-                      ))}
-                    </div>
-
-                    {week.homework && (
-                      <div className={styles.homework}>
-                        <span className={styles.homeworkLabel}>Homework</span>
-                        <p className={styles.homeworkText}>{week.homework}</p>
                       </div>
-                    )}
-                  </div>
-                </RevealOnScroll>
-              </div>
-            ))}
+
+                      <div className={styles.sessions}>
+                        {week.sessions.map((s) => (
+                          <div className={styles.sessionRow} key={s.title}>
+                            <span className={styles.sessionTime}>{s.time}</span>
+                            <div>
+                              <div className={styles.sessionTitle}>{s.title}</div>
+                              <p className={styles.sessionText}>{s.text}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {week.homework && (
+                        <div className={styles.homework}>
+                          <span className={styles.homeworkLabel}>Homework</span>
+                          <p className={styles.homeworkText}>{week.homework}</p>
+                        </div>
+                      )}
+                    </div>
+                  </RevealOnScroll>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
